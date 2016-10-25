@@ -1,35 +1,19 @@
 <?xml version="1.0"?>
-
-
-<!DOCTYPE rdf:RDF [
-    <!ENTITY bibtexml "http://bibtexml.sf.net/" >
-    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY chemoinformatics-algorithms "http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#" >
-]>
- 
-
 <rdf:RDF xmlns="http://semanticscience.org/ontology/bodo.owl#"
      xml:base="http://semanticscience.org/ontology/bodo.owl"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:bibtexml="http://bibtexml.sf.net/"
      xmlns:chemoinformatics-algorithms="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="">
-        <dc:title
-            >Blue Obelisk Descriptor Ontology</dc:title>
-        <dc:creator
-            >Egon Willighagen</dc:creator>
-        <dc:creator
-            >Michel Dumontier</dc:creator>
+    <owl:Ontology rdf:about="http://semanticscience.org/ontology/bodo.owl">
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/bfo/2014-05-03/classes-only.owl"/>
+        <dc:creator>Egon Willighagen</dc:creator>
+        <dc:creator>Michel Dumontier</dc:creator>
+        <dc:title>Blue Obelisk Descriptor Ontology</dc:title>
     </owl:Ontology>
     
 
@@ -42,13 +26,48 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:AnnotationProperty rdf:about="&dc;date"/>
-    <owl:AnnotationProperty rdf:about="&bibtexml;entry"/>
-    <owl:AnnotationProperty rdf:about="&dc;title"/>
-    <owl:AnnotationProperty rdf:about="&chemoinformatics-algorithms;description"/>
-    <owl:AnnotationProperty rdf:about="&chemoinformatics-algorithms;definition"/>
-    <owl:AnnotationProperty rdf:about="&dc;contributor"/>
-    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- entry -->
+
+    <owl:AnnotationProperty rdf:about="http://bibtexml.sf.net/entry"/>
+    
+
+
+    <!-- contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/contributor"/>
+    
+
+
+    <!-- creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#definition"/>
+    
+
+
+    <!-- description -->
+
+    <owl:AnnotationProperty rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#description"/>
     
 
 
@@ -63,36 +82,33 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#ALOGP -->
+    <!-- ALogP -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;ALOGP">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#ALOGP">
         <rdfs:label>ALogP</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#tm</dc:contributor>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#tm</dc:contributor>
         <dc:date>2005-01-27</dc:date>
-        <chemoinformatics-algorithms:definition
-            >Calculates atom additive logP and molar refractivity values as described by Ghose and Crippen
+        <chemoinformatics-algorithms:definition>Calculates atom additive logP and molar refractivity values as described by Ghose and Crippen
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;GHOSE1986&quot;&gt;&lt;/bibtex:cite&gt; and &lt;bibtex:cite ref=&quot;GHOSE1987&quot;&gt;&lt;/bibtex:cite&gt;</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor -->
+    <!-- AtomicDescriptor -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;AtomicDescriptor">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Descriptor"/>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Descriptor"/>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#BAT95 -->
+    <!-- BAT95 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;BAT95">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#BAT95">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Bath, P.A. and Poirette, A.R. and Willet, P. and Allen, F.H.
                 &lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;The Extent of the Relationship between the Graph-Theoretical and the Geometrical Shape
@@ -107,33 +123,29 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#BCUT -->
+    <!-- BCUT -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;BCUT">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#BCUT">
         <rdfs:label>BCUT</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;hybridDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >Eigenvalue based descriptor noted for its utility in chemical diversity
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hybridDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+        <dc:date>2005-01-27</dc:date>
+        <chemoinformatics-algorithms:definition>Eigenvalue based descriptor noted for its utility in chemical diversity
             described by Pearlman et al.
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;PEA99&quot;&gt;&lt;/bibtex:cite&gt;
             .</chemoinformatics-algorithms:definition>
-        <dc:date>2005-01-27</dc:date>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#BK02 -->
+    <!-- BK02 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;BK02">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
-                &lt;bibtex:author&gt;B&#195;&#182;hm, M. and Klebe, G.&lt;/bibtex:author&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#BK02">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+                &lt;bibtex:author&gt;BÃ¶hm, M. and Klebe, G.&lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;Development of New Hydrogen-Bond Descriptors and Their {A}pplication to Comparative Molecular Field Analyses&lt;/bibtex:title&gt;
                 &lt;bibtex:journal&gt;J. Med. Chem.&lt;/bibtex:journal&gt;
                 &lt;bibtex:year&gt;2002&lt;/bibtex:year&gt;
@@ -144,20 +156,19 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#BondDescriptor -->
+    <!-- BondDescriptor -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;BondDescriptor">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Descriptor"/>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#BondDescriptor">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Descriptor"/>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#CHER2003 -->
+    <!-- CHER2003 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;CHER2003">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#CHER2003">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Cherkasov, A.&lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;Inductive Electronegativity Scale. Iterative Calculation of Inductive Partial
                     Charges
@@ -172,29 +183,25 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#CPSA -->
+    <!-- Charged Partial Surface Areas -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;CPSA">
-        <rdfs:label
-            >Charged Partial Surface Areas</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;geometricalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >A variety of descriptors combining surface area and partial charge information</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#CPSA">
+        <rdfs:label>Charged Partial Surface Areas</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#geometricalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2005-05-16</dc:date>
+        <chemoinformatics-algorithms:definition>A variety of descriptors combining surface area and partial charge information</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#DAY01 -->
+    <!-- DAY01 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;DAY01">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:misc xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#DAY01">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:misc xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Daylight&lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;SMILES on-line tutorial&lt;/bibtex:title&gt;
                 &lt;bibtex:url&gt;http://www.daylight.com/dayhtml_tutorials/languages/smarts/smarts_examples.html&lt;/bibtex:url&gt;
@@ -203,18 +210,17 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Descriptor -->
+    <!-- Descriptor -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;Descriptor"/>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Descriptor"/>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#ERTL2000 -->
+    <!-- ERTL2000 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;ERTL2000">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#ERTL2000">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Ertl, P. and Rohde, B. and Selzer, P.&lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;Fast Calculation of Molecular Polar Surface Area as a Sum of
                     Fragment-Based Contributions and Its Application to the Prediction of
@@ -231,12 +237,11 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#GAST2002 -->
+    <!-- GAST2002 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;GAST2002">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#GAST2002">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Aires-de-Sousa, J. and Hemmer, M.C. and Gasteiger, J.&lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;Prediction of 1H NMR Chemical Shifts Using Neural Networks&lt;/bibtex:title&gt;
                 &lt;bibtex:journal&gt;Anal. Chem.&lt;/bibtex:journal&gt;
@@ -250,12 +255,11 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#GWB98 -->
+    <!-- GWB98 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;GWB98">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#GWB98">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
               &lt;bibtex:author&gt;Gillet, J. and Willett, P. and Bradshaw, J.&lt;/bibtex:author&gt;
               &lt;bibtex:title&gt;Identification of Biological Activity Profiles Using Substructural Analysis and Genetic Algorithms&lt;/bibtex:title&gt;
               &lt;bibtex:journal&gt;J. Chem. Inf. Comput. Sci.&lt;/bibtex:journal&gt;
@@ -267,12 +271,11 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#KAT96 -->
+    <!-- KAT96 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;KAT96">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#KAT96">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Katritzky, A.R. and Mu, L. and Lobanov, V.S. and Karelson, M.&lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;Correlation of Boiling Points With Molecular Structure. 1. A Training Set of 298 Diverse
                     Organics and a Test Set of 9 Simple Inorganics
@@ -286,12 +289,11 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#LIU98 -->
+    <!-- LIU98 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;LIU98">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#LIU98">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Liu, S. and Cao, C. and Li, Z.
                 &lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;Approach to Estimation and Prediction for Normal
@@ -307,12 +309,11 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MARSILI -->
+    <!-- MARSILI -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;MARSILI">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MARSILI">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Gasteiger, J.&lt;/bibtex:author&gt;
                 &lt;bibtex:author&gt;Marsili, M.&lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;
@@ -328,36 +329,32 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor -->
+    <!-- MolecularDescriptor -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;MolecularDescriptor">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Descriptor"/>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Descriptor"/>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#NilaComplexity -->
+    <!-- Fragment Complexity -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;NilaComplexity">
-        <rdfs:label
-            >Fragment Complexity</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chhoppe</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The complexity of a system. The complexity is defined as @cdk.cite{Nilakantan06}</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#NilaComplexity">
+        <rdfs:label>Fragment Complexity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chhoppe</dc:contributor>
         <dc:date>2006-8-22</dc:date>
+        <chemoinformatics-algorithms:definition>The complexity of a system. The complexity is defined as @cdk.cite{Nilakantan06}</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#PEA99 -->
+    <!-- PEA99 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;PEA99">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#PEA99">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Pearlman, R.S. and Smith, K.M.&lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;Metric Validation and the Receptor-Relevant Subspace Concept&lt;/bibtex:title&gt;
                 &lt;bibtex:journal&gt;J. Chem. Inf. Comput. Sci.&lt;/bibtex:journal&gt;
@@ -370,12 +367,11 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#PET92 -->
+    <!-- PET92 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;PET92">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#PET92">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Petitjean, M.
                 &lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;Applications of the radius-diameter diagram to the classification of topological and
@@ -390,12 +386,11 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#PL96 -->
+    <!-- PL96 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;PL96">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#PL96">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
               &lt;bibtex:author&gt;Patani, G. A. and LaVoie, E. J.&lt;/bibtex:author&gt;
               &lt;bibtex:title&gt;Bioisosterism: A Rational Approach in Drug Design&lt;/bibtex:title&gt;
               &lt;bibtex:journal&gt;Chem. Rev.&lt;/bibtex:journal&gt;
@@ -407,20 +402,19 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#ProteinDescriptor -->
+    <!-- ProteinDescriptor -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;ProteinDescriptor">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#ProteinDescriptor">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#RAN84 -->
+    <!-- RAN84 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;RAN84">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#RAN84">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Randic, M.
                 &lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;On molecular identification numbers&lt;/bibtex:title&gt;
@@ -433,18 +427,17 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference -->
+    <!-- Reference -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;Reference"/>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#SALLER -->
+    <!-- SALLER -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;SALLER">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#SALLER">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Gasteiger, J.&lt;/bibtex:author&gt;
                 &lt;bibtex:author&gt;Saller, H.&lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;
@@ -461,12 +454,11 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#TC00 -->
+    <!-- TC00 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;TC00">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#TC00">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
               &lt;bibtex:author&gt;Todeschini, R. and Consonni, V.&lt;/bibtex:author&gt;
               &lt;bibtex:title&gt;Handbook of Molecular Descriptors&lt;/bibtex:title&gt;
               &lt;bibtex:year&gt;2000&lt;/bibtex:year&gt;
@@ -476,12 +468,11 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#TOD98 -->
+    <!-- TOD98 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;TOD98">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#TOD98">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Todeschini, R. and Gramatica, P.&lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;New 3D Molecular Descriptors: The WHIM theory and QAR Applications&lt;/bibtex:title&gt;
                 &lt;bibtex:journal&gt;Persepectives in Drug Discovery and Design&lt;/bibtex:journal&gt;
@@ -492,12 +483,11 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#TRI92 -->
+    <!-- TRI92 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;TRI92">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:book xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#TRI92">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:book xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Trinijastic, N.&lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;Chemical Graph Theory&lt;/bibtex:title&gt;
                 &lt;bibtex:publisher&gt;CRC Press&lt;/bibtex:publisher&gt;
@@ -508,12 +498,11 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#WANG97 -->
+    <!-- WANG97 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;WANG97">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#WANG97">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Wang, R., Fu, Y., and Lai, L.&lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;A New Atom-Additive Method for Calculating Partition Coefficients&lt;/bibtex:title&gt;
                 &lt;bibtex:journal&gt;Journal of Chemical Information and Computer
@@ -527,12 +516,11 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#WES98 -->
+    <!-- WES98 -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;WES98">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Reference"/>
-        <bibtexml:entry
-            >&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#WES98">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Reference"/>
+        <bibtexml:entry>&lt;bibtex:article xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot;&gt;
                 &lt;bibtex:author&gt;Wessel, M.D. and Jurs, P.C. and Tolan, J.W. and Muskal, S.M.
                 &lt;/bibtex:author&gt;
                 &lt;bibtex:title&gt;Prediction of Human Intestinal Absorption of Drug Compounds
@@ -549,154 +537,125 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#WHIM -->
+    <!-- WHIM -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;WHIM">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#WHIM">
         <rdfs:label>WHIM</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;hybridDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hybridDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2005-01-27</dc:date>
-        <chemoinformatics-algorithms:definition
-            >Holistic descriptors described by Todeschini et al
+        <chemoinformatics-algorithms:definition>Holistic descriptors described by Todeschini et al
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;TOD98&quot;&gt;&lt;/bibtex:cite&gt;
             .</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#aminoAcidsCount -->
+    <!-- Amino Acid Count -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;aminoAcidsCount">
-        <rdfs:label
-            >Amino Acid Count</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;ProteinDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#aminoAcidsCount">
+        <rdfs:label>Amino Acid Count</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#ProteinDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
         <dc:date>2006-01-15</dc:date>
+        <chemoinformatics-algorithms:definition>The number of amino acids found in the system</chemoinformatics-algorithms:definition>
         <chemoinformatics-algorithms:description></chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >The number of amino acids found in the system</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#apol -->
+    <!-- Atomic Polarizabilities -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;apol">
-        <rdfs:label
-            >Atomic Polarizabilities</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The sum of the atomic polarizabilities (including implicit hydrogens).</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#apol">
+        <rdfs:label>Atomic Polarizabilities</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
-        <chemoinformatics-algorithms:description
-            >Polarizabilities derive from periodic tables.</chemoinformatics-algorithms:description>
+        <chemoinformatics-algorithms:definition>The sum of the atomic polarizabilities (including implicit hydrogens).</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Polarizabilities derive from periodic tables.</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#aromaticAtomsCount -->
+    <!-- Aromatic Atoms Count -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;aromaticAtomsCount">
-        <rdfs:label
-            >Aromatic Atoms Count</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The number of aromatic atoms of a molecule.</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#aromaticAtomsCount">
+        <rdfs:label>Aromatic Atoms Count</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:definition>The number of aromatic atoms of a molecule.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#aromaticBondsCount -->
+    <!-- Aromatic Bonds Count -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;aromaticBondsCount">
-        <rdfs:label
-            >Aromatic Bonds Count</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#aromaticBondsCount">
+        <rdfs:label>Aromatic Bonds Count</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The number of aromatic bonds of a molecule.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The number of aromatic bonds of a molecule.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomCount -->
+    <!-- Element Count -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;atomCount">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomCount">
         <rdfs:label>Element Count</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The number of atoms of a certain element type.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The number of atoms of a certain element type.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomDegree -->
+    <!-- Atomic Degree -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;atomDegree">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomDegree">
         <rdfs:label>Atomic Degree</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The number of not-Hs substituents of an atom.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The number of not-Hs substituents of an atom.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomHybridization -->
+    <!-- Atomic Hybridization -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;atomHybridization">
-        <rdfs:label
-            >Atomic Hybridization</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The hybridization state of an atom.</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomHybridization">
+        <rdfs:label>Atomic Hybridization</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:definition>The hybridization state of an atom.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomHybridizationVSEPR -->
+    <!-- Atomic Hybridization VSEPR -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;atomHybridizationVSEPR">
-        <rdfs:label
-            >Atomic Hybridization VSEPR</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The hybridization state of an atom.</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomHybridizationVSEPR">
+        <rdfs:label>Atomic Hybridization VSEPR</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
         <dc:date>2006-05-08</dc:date>
-        <chemoinformatics-algorithms:description
-            >The calculation find a SIMPLE WAY the molecular geometry for
+        <chemoinformatics-algorithms:definition>The hybridization state of an atom.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>The calculation find a SIMPLE WAY the molecular geometry for
             following from Valence Shell Electron Pair Repulsion or
             VSEPR model and at the same time its hybridization of atoms
             in a molecule.</chemoinformatics-algorithms:description>
@@ -704,35 +663,29 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomValence -->
+    <!-- Atomic Valence -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;atomValence">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomValence">
         <rdfs:label>Atomic Valence</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The valence of an atom.</chemoinformatics-algorithms:definition>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:definition>The valence of an atom.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomicHardness -->
+    <!-- Inductive atomic hardness -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;atomicHardness">
-        <rdfs:label
-            >Inductive atomic hardness</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The atomic hardness of a given atom.</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomicHardness">
+        <rdfs:label>Inductive atomic hardness</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-04-21</dc:date>
-        <chemoinformatics-algorithms:description
-            >Inductive atomic hardness of an atom in a polyatomic system can be defined
+        <chemoinformatics-algorithms:definition>The atomic hardness of a given atom.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Inductive atomic hardness of an atom in a polyatomic system can be defined
             as the resistance to a change of the atomic charge.
             This descriptor is described by Cherkasov
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;CHER2003&quot;&gt;&lt;/bibtex:cite&gt;
@@ -741,20 +694,16 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomicSoftness -->
+    <!-- Inductive atomic softness -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;atomicSoftness">
-        <rdfs:label
-            >Inductive atomic softness</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The atomic softness of a given atom.</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#atomicSoftness">
+        <rdfs:label>Inductive atomic softness</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-04-21</dc:date>
-        <chemoinformatics-algorithms:description
-            >Inductive atomic softness of an atom in a polyatomic system can be defined
+        <chemoinformatics-algorithms:definition>The atomic softness of a given atom.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Inductive atomic softness of an atom in a polyatomic system can be defined
             as as charge delocalizing ability.
             This descriptor is described by Cherkasov
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;CHER2003&quot;&gt;&lt;/bibtex:cite&gt;
@@ -763,225 +712,180 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#autoCorrelationCharge -->
+    <!-- Moreau-Broto Autocorrelation (charge) descriptors -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;autoCorrelationCharge">
-        <rdfs:label
-            >Moreau-Broto Autocorrelation (charge) descriptors</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#fm</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The Moreau-Broto autocorrelation descriptors using partial charges</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#autoCorrelationCharge">
+        <rdfs:label>Moreau-Broto Autocorrelation (charge) descriptors</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#fm</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2006-01-15</dc:date>
+        <chemoinformatics-algorithms:definition>The Moreau-Broto autocorrelation descriptors using partial charges</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#autoCorrelationMass -->
+    <!-- Moreau-Broto Autocorrelation (mass) descriptors -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;autoCorrelationMass">
-        <rdfs:label
-            >Moreau-Broto Autocorrelation (mass) descriptors</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#fm</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#autoCorrelationMass">
+        <rdfs:label>Moreau-Broto Autocorrelation (mass) descriptors</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#fm</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2006-01-15</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The Moreau-Broto autocorrelation descriptors using atomic weight</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The Moreau-Broto autocorrelation descriptors using atomic weight</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#autoCorrelationPolarizability -->
+    <!-- Moreau-Broto Autocorrelation (polarizability) descriptors -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;autoCorrelationPolarizability">
-        <rdfs:label
-            >Moreau-Broto Autocorrelation (polarizability) descriptors</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#fm</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The Moreau-Broto autocorrelation descriptors using polarizability</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#autoCorrelationPolarizability">
+        <rdfs:label>Moreau-Broto Autocorrelation (polarizability) descriptors</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#fm</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2006-01-15</dc:date>
+        <chemoinformatics-algorithms:definition>The Moreau-Broto autocorrelation descriptors using polarizability</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bondCount -->
+    <!-- Bond Count -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;bondCount">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bondCount">
         <rdfs:label>Bond Count</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The number of bonds of a certain bond order.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The number of bonds of a certain bond order.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bondPartialPiCharge -->
+    <!-- Bond Partial Pi Charge -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;bondPartialPiCharge">
-        <rdfs:label
-            >Bond Partial Pi Charge</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;BondDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bondPartialPiCharge">
+        <rdfs:label>Bond Partial Pi Charge</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#BondDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
         <dc:date>2006-05-08</dc:date>
-        <chemoinformatics-algorithms:description
-            >The difference the
+        <chemoinformatics-algorithms:definition>bond-pi Partial charge of a bond.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>The difference the
             Partial Pi Charge on atoms A and B of a bond. Based in
             Gasteiger Charge.</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >bond-pi Partial charge of a bond.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bondPartialSigmaCharge -->
+    <!-- Bond Partial Sigma Charge -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;bondPartialSigmaCharge">
-        <rdfs:label
-            >Bond Partial Sigma Charge</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;BondDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bondPartialSigmaCharge">
+        <rdfs:label>Bond Partial Sigma Charge</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#BondDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
         <dc:date>2006-05-08</dc:date>
-        <chemoinformatics-algorithms:definition
-            >bond-sigma Partial charge of a
+        <chemoinformatics-algorithms:definition>bond-sigma Partial charge of a
             bond.</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >The difference the
+        <chemoinformatics-algorithms:description>The difference the
             Partial Sigma Charge on atoms A and B of a bond. Based in
             Gasteiger Charge.</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bondPartialTCharge -->
+    <!-- Bond Partial Total Charge -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;bondPartialTCharge">
-        <rdfs:label
-            >Bond Partial Total Charge</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;BondDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >bond-total Partial charge of a
-            bond.</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bondPartialTCharge">
+        <rdfs:label>Bond Partial Total Charge</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#BondDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
         <dc:date>2006-05-08</dc:date>
-        <chemoinformatics-algorithms:description
-            >The difference the
+        <chemoinformatics-algorithms:definition>bond-total Partial charge of a
+            bond.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>The difference the
             Partial Total Charge on atoms A and B of a bond. Based in
             Gasteiger Charge.</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bondSigmaElectronegativity -->
+    <!-- Bond Sigma Electronegativity -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;bondSigmaElectronegativity">
-        <rdfs:label
-            >Bond Sigma Electronegativity</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;BondDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bondSigmaElectronegativity">
+        <rdfs:label>Bond Sigma Electronegativity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#BondDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
         <dc:date>2006-05-08</dc:date>
-        <chemoinformatics-algorithms:description
-            >The difference the
+        <chemoinformatics-algorithms:definition>of bond-Polarizability of a bond.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>The difference the
             Sigma electronegativity on atoms A and B of a bond.</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >of bond-Polarizability of a bond.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bondsToAtom -->
+    <!-- Bonds to Atom -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;bondsToAtom">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bondsToAtom">
         <rdfs:label>Bonds to Atom</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The number of bonds on the shortest path between two atoms.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The number of bonds on the shortest path between two atoms.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bpol -->
+    <!-- Bond Polarizabilities -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;bpol">
-        <rdfs:label
-            >Bond Polarizabilities</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:description
-            >Polarizabilities derive from periodic tables.</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >The sum of the absolute value of the difference between atomic
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#bpol">
+        <rdfs:label>Bond Polarizabilities</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:definition>The sum of the absolute value of the difference between atomic
             polarizabilities of all bonded atoms in the molecule (including implicit hydrogens).</chemoinformatics-algorithms:definition>
-        <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:description>Polarizabilities derive from periodic tables.</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#carbonTypes -->
+    <!-- Carbon Types -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;carbonTypes">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#carbonTypes">
         <rdfs:label>Carbon Types</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2006-09-26</dc:date>
-        <chemoinformatics-algorithms:description
-            >This is a port of the ADAPT CTYPES routine and is a count of
+        <chemoinformatics-algorithms:definition>Characterizes the carbon connectivity in terms of hybridization</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>This is a port of the ADAPT CTYPES routine and is a count of
             carbon atom in different hybridization states and environments</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >Characterizes the carbon connectivity in terms of hybridization</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chi0C -->
+    <!-- Carbon connectivity index (order 0) -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;chi0C">
-        <rdfs:label
-            >Carbon connectivity index (order 0)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The carbon connectivity index (order 0).</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chi0C">
+        <rdfs:label>Carbon connectivity index (order 0)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
-        <chemoinformatics-algorithms:description
-            >While the atomic connectivity is calculated as the sum of
+        <chemoinformatics-algorithms:definition>The carbon connectivity index (order 0).</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>While the atomic connectivity is calculated as the sum of
             &lt;mrow xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;
                 &lt;mfrac&gt;
                     &lt;mi&gt;1&lt;/mi&gt;
@@ -1002,17 +906,16 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chi0v -->
+    <!-- Valence connectivity index (order 0) -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;chi0v">
-        <rdfs:label
-            >Valence connectivity index (order 0)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:description
-            >Let
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chi0v">
+        <rdfs:label>Valence connectivity index (order 0)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:definition>atomic valence connectivity index (order 0).</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Let
             &lt;mrow xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;
                 &lt;mrow&gt;
                     &lt;msub&gt;
@@ -1114,27 +1017,20 @@
                 &lt;/msub&gt;
             &lt;/mrow&gt;
             greather than 0.</chemoinformatics-algorithms:description>
-        <dc:date>2004-11-26</dc:date>
-        <chemoinformatics-algorithms:definition
-            >atomic valence connectivity index (order 0).</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chi0vC -->
+    <!-- Valence carbon connectivity index (order 0) -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;chi0vC">
-        <rdfs:label
-            >Valence carbon connectivity index (order 0)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chi0vC">
+        <rdfs:label>Valence carbon connectivity index (order 0)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
-        <chemoinformatics-algorithms:definition
-            >carbon valence connectivity index (order 0).</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >Let
+        <chemoinformatics-algorithms:definition>carbon valence connectivity index (order 0).</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Let
             &lt;mrow xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;
                 &lt;mrow&gt;
                     &lt;msub&gt;
@@ -1248,19 +1144,16 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chi1C -->
+    <!-- Carbon connectivity index (order 1) -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;chi1C">
-        <rdfs:label
-            >Carbon connectivity index (order 1)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >carbon connectivity index (order 1).</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >While the atomic connectivity is calculated as the sum of
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chi1C">
+        <rdfs:label>Carbon connectivity index (order 1)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:definition>carbon connectivity index (order 1).</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>While the atomic connectivity is calculated as the sum of
             &lt;mrow xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;
                 &lt;mfrac&gt;
                     &lt;mi&gt;1&lt;/mi&gt;
@@ -1289,22 +1182,20 @@
             &lt;/mrow&gt;
             over all bonds between heavy atoms i and j, the carbon connectivity index
             takes into account only bonds between carbon atoms.</chemoinformatics-algorithms:description>
-        <dc:date>2004-11-26</dc:date>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chi1v -->
+    <!-- Valence connectivity index (order 1) -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;chi1v">
-        <rdfs:label
-            >Valence connectivity index (order 1)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:description
-            >Let
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chi1v">
+        <rdfs:label>Valence connectivity index (order 1)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:definition>atomic valence connectivity index (order 1).</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Let
             &lt;mrow xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;
                 &lt;mrow&gt;
                     &lt;msub&gt;
@@ -1405,27 +1296,20 @@
                 &lt;/mfrac&gt;
             &lt;/mrow&gt;
             over all bonds between heavy atoms i and j.</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >atomic valence connectivity index (order 1).</chemoinformatics-algorithms:definition>
-        <dc:date>2004-11-26</dc:date>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chi1vC -->
+    <!-- Valence carbon connectivity index (order 1) -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;chi1vC">
-        <rdfs:label
-            >Valence carbon connectivity index (order 1)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chi1vC">
+        <rdfs:label>Valence carbon connectivity index (order 1)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
-        <chemoinformatics-algorithms:definition
-            >carbon valence connectivity index (order 1).</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >Let
+        <chemoinformatics-algorithms:definition>carbon valence connectivity index (order 1).</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Let
             &lt;mrow xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;
                 &lt;mrow&gt;
                     &lt;msub&gt;
@@ -1531,142 +1415,117 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chiChain -->
+    <!-- Chi Chain Indices -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;chiChain">
-        <rdfs:label
-            >Chi Chain Indices</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >Evaluates the Kier &amp;amp; Hall Chi chain indices of orders 3,4,5 and 6</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chiChain">
+        <rdfs:label>Chi Chain Indices</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2006-11-12</dc:date>
-        <chemoinformatics-algorithms:description
-            >Both the simple and valence versions of this descriptor are evaluated</chemoinformatics-algorithms:description>
+        <chemoinformatics-algorithms:definition>Evaluates the Kier &amp;amp; Hall Chi chain indices of orders 3,4,5 and 6</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Both the simple and valence versions of this descriptor are evaluated</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chiCluster -->
+    <!-- Chi Cluster Indices -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;chiCluster">
-        <rdfs:label
-            >Chi Cluster Indices</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
-        <chemoinformatics-algorithms:description
-            >Both the simple and valence versions of this descriptor are evaluated</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >Evaluates the Kier &amp;amp; Hall Chi cluster indices of orders 3,4,5,6 and 7</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chiCluster">
+        <rdfs:label>Chi Cluster Indices</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2006-11-13</dc:date>
+        <chemoinformatics-algorithms:definition>Evaluates the Kier &amp;amp; Hall Chi cluster indices of orders 3,4,5,6 and 7</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Both the simple and valence versions of this descriptor are evaluated</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chiPath -->
+    <!-- Chi Path Indices -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;chiPath">
-        <rdfs:label
-            >Chi Path Indices</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >Evaluates the Kier &amp;amp; Hall Chi path indices of orders 0,1,2,3,4,5,6 and 7</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >Both the simple and valence versions of this descriptor are evaluated</chemoinformatics-algorithms:description>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chiPath">
+        <rdfs:label>Chi Path Indices</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2006-11-12</dc:date>
+        <chemoinformatics-algorithms:definition>Evaluates the Kier &amp;amp; Hall Chi path indices of orders 0,1,2,3,4,5,6 and 7</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Both the simple and valence versions of this descriptor are evaluated</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chiPathCluster -->
+    <!-- Chi Path-Cluster Indices -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;chiPathCluster">
-        <rdfs:label
-            >Chi Path-Cluster Indices</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >Evaluates the Kier &amp;amp; Hall Chi path cluster indices of orders 4,5 and 6</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chiPathCluster">
+        <rdfs:label>Chi Path-Cluster Indices</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2006-11-13</dc:date>
-        <chemoinformatics-algorithms:description
-            >Both the simple and valence versions of this descriptor are evaluated</chemoinformatics-algorithms:description>
+        <chemoinformatics-algorithms:definition>Evaluates the Kier &amp;amp; Hall Chi path cluster indices of orders 4,5 and 6</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Both the simple and valence versions of this descriptor are evaluated</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor -->
+    <!-- constitutionalDescriptor -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;constitutionalDescriptor">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Descriptor"/>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Descriptor"/>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#covalentRadius -->
+    <!-- Covalent Radius -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;covalentRadius">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#covalentRadius">
         <rdfs:label>Covalent Radius</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The covalent radius of a given atom.</chemoinformatics-algorithms:definition>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
         <dc:date>2006-05-08</dc:date>
+        <chemoinformatics-algorithms:definition>The covalent radius of a given atom.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#distanceToAtom -->
+    <!-- Distance to Atom -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;distanceToAtom">
-        <rdfs:label
-            >Distance to Atom</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;geometricalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#distanceToAtom">
+        <rdfs:label>Distance to Atom</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#geometricalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The 3D distance between two atoms.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The 3D distance between two atoms.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#eccentricConnectivityIndex -->
+    <!-- Eccentric Connectivity Index -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;eccentricConnectivityIndex">
-        <rdfs:label
-            >Eccentric Connectivity Index</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#eccentricConnectivityIndex">
+        <rdfs:label>Eccentric Connectivity Index</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2005-03-19</dc:date>
-        <chemoinformatics-algorithms:definition
-            >A topological descriptor combining distance and adjacency information.</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >
+        <chemoinformatics-algorithms:definition>A topological descriptor combining distance and adjacency information.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>
 
             The eccentric connectivity index for a hydrogen supressed molecular graph is given by the
             expression
 
             &lt;math xmlns=&quot;http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#&quot; display=&quot;block&quot; overflow=&quot;scroll&quot;&gt;
                 &lt;msup&gt;
-                    &lt;mi&gt;&#206;&#190;&lt;/mi&gt;
+                    &lt;mi&gt;Î¾&lt;/mi&gt;
                     &lt;mi&gt;c&lt;/mi&gt;
 
                 &lt;/msup&gt;
                 &lt;mo&gt;=&lt;/mo&gt;
                 &lt;munder&gt;
-                    &lt;mo&gt;&#226;&#710;&#8216;&lt;/mo&gt;
+                    &lt;mo&gt;âˆ‘&lt;/mo&gt;
                     &lt;mrow&gt;
                         &lt;mi&gt;i&lt;/mi&gt;
                         &lt;mo&gt;=&lt;/mo&gt;
@@ -1676,13 +1535,13 @@
                 &lt;/munder&gt;
                 &lt;mi&gt;n&lt;/mi&gt;
                 &lt;mi&gt;E&lt;/mi&gt;
-                &lt;mo&gt;&#226;?&#161;&lt;/mo&gt;
+                &lt;mo&gt;â?¡&lt;/mo&gt;
                 &lt;mfenced&gt;
 
                     &lt;mi&gt;i&lt;/mi&gt;
                 &lt;/mfenced&gt;
                 &lt;mi&gt;V&lt;/mi&gt;
-                &lt;mo&gt;&#226;?&#161;&lt;/mo&gt;
+                &lt;mo&gt;â?¡&lt;/mo&gt;
                 &lt;mfenced&gt;
                     &lt;mi&gt;i&lt;/mi&gt;
                 &lt;/mfenced&gt;
@@ -1701,292 +1560,235 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#effectivePolarizability -->
+    <!-- Effective Polarizability -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;effectivePolarizability">
-        <rdfs:label
-            >Effective Polarizability</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#effectivePolarizability">
+        <rdfs:label>Effective Polarizability</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
-        <chemoinformatics-algorithms:description
-            >Polarizabilities are assigned to the heavy atom by Polarizability class.</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >The effective polarizability of a given heavy atom.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The effective polarizability of a given heavy atom.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Polarizabilities are assigned to the heavy atom by Polarizability class.</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor -->
+    <!-- electronicDescriptor -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;electronicDescriptor">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Descriptor"/>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Descriptor"/>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#geometricalDescriptor -->
+    <!-- geometricalDescriptor -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;geometricalDescriptor">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Descriptor"/>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#geometricalDescriptor">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Descriptor"/>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#gravitationalIndex -->
+    <!-- Gravitational Index -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;gravitationalIndex">
-        <rdfs:label
-            >Gravitational Index</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;geometricalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
-        <chemoinformatics-algorithms:description
-            >This descriptor is described by Katritzky et al.
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#gravitationalIndex">
+        <rdfs:label>Gravitational Index</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#geometricalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+        <dc:date>2004-11-24</dc:date>
+        <chemoinformatics-algorithms:definition>Descriptor characterizing the mass distribution of the molecule.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>This descriptor is described by Katritzky et al.
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;KAT96&quot;&gt;&lt;/bibtex:cite&gt;
             .</chemoinformatics-algorithms:description>
-        <dc:date>2004-11-24</dc:date>
-        <chemoinformatics-algorithms:definition
-            >Descriptor characterizing the mass distribution of the molecule.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#gravitationalIndex_SquareAndCubeRoots -->
+    <!-- Gravitational Index (Square and Cube Roots) -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;gravitationalIndex_SquareAndCubeRoots">
-        <rdfs:label
-            >Gravitational Index (Square and Cube Roots)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#gravitationalIndex_SquareAndCubeRoots">
+        <rdfs:label>Gravitational Index (Square and Cube Roots)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2004-11-25</dc:date>
-        <chemoinformatics-algorithms:description
-            >This descriptor is described by Wessel et al.
+        <chemoinformatics-algorithms:definition>Descriptor characterizing the mass distribution of the molecule as the square
+            or cube root of the gravitational index.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>This descriptor is described by Wessel et al.
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;WES98&quot;&gt;&lt;/bibtex:cite&gt;
             .</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >Descriptor characterizing the mass distribution of the molecule as the square
-            or cube root of the gravitational index.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondAcceptorsBoehmKlebe -->
+    <!-- Acceptor Field Atoms (Boehm,Klebe) -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;hBondAcceptorsBoehmKlebe">
-        <rdfs:label
-            >Acceptor Field Atoms (Boehm,Klebe)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#jkw</dc:contributor>
-        <chemoinformatics-algorithms:description
-            >Force field based definition of hydrogen bond acceptors &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;BK02&quot;&gt;&lt;/bibtex:cite&gt;
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondAcceptorsBoehmKlebe">
+        <rdfs:label>Acceptor Field Atoms (Boehm,Klebe)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#jkw</dc:contributor>
+        <dc:date>2006-09-08</dc:date>
+        <chemoinformatics-algorithms:definition>The number of acceptor field atoms for a carbonyl oxygen probe.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Force field based definition of hydrogen bond acceptors &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;BK02&quot;&gt;&lt;/bibtex:cite&gt;
         This rule covers nitril, carbonyl, ether, and amin nitrogens.</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >The number of acceptor field atoms for a carbonyl oxygen probe.</chemoinformatics-algorithms:definition>
-        <dc:date>2006-09-08</dc:date>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondAcceptorsDonorsBoehmKlebe -->
+    <!-- Acceptors or Donors Field Atoms (Boehm,Klebe) -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;hBondAcceptorsDonorsBoehmKlebe">
-        <rdfs:label
-            >Acceptors or Donors Field Atoms (Boehm,Klebe)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#jkw</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The number of acceptor/donor field atoms for a carbonyl oxygen or amino hydrogen probe.</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondAcceptorsDonorsBoehmKlebe">
+        <rdfs:label>Acceptors or Donors Field Atoms (Boehm,Klebe)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#jkw</dc:contributor>
         <dc:date>2006-09-08</dc:date>
-        <chemoinformatics-algorithms:description
-            >Force field based definition of hydrogen bond acceptors or donors &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;BK02&quot;&gt;&lt;/bibtex:cite&gt;.
+        <chemoinformatics-algorithms:definition>The number of acceptor/donor field atoms for a carbonyl oxygen or amino hydrogen probe.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Force field based definition of hydrogen bond acceptors or donors &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;BK02&quot;&gt;&lt;/bibtex:cite&gt;.
         This rule covers amino and hydroxy groups.</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondDonors -->
+    <!-- Hydrogen Bond Donors -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;hBondDonors">
-        <rdfs:label
-            >Hydrogen Bond Donors</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The number of hydrogen bond donors.</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondDonors">
+        <rdfs:label>Hydrogen Bond Donors</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:definition>The number of hydrogen bond donors.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondDonorsBoehmKlebe -->
+    <!-- Donor Field Atoms (Boehm,Klebe) -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;hBondDonorsBoehmKlebe">
-        <rdfs:label
-            >Donor Field Atoms (Boehm,Klebe)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#jkw</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The number of donor field atoms for an amino hydrogen probe.</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >Force field based definition of hydrogen bond donors &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;BK02&quot;&gt;&lt;/bibtex:cite&gt;.
-        This rule covers amino groups, chloro, bromo and iodo atoms &lt;bibtex:cite ref=&quot;PL96&quot;&gt;&lt;/bibtex:cite&gt;.</chemoinformatics-algorithms:description>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondDonorsBoehmKlebe">
+        <rdfs:label>Donor Field Atoms (Boehm,Klebe)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#jkw</dc:contributor>
         <dc:date>2006-09-08</dc:date>
+        <chemoinformatics-algorithms:definition>The number of donor field atoms for an amino hydrogen probe.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Force field based definition of hydrogen bond donors &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;BK02&quot;&gt;&lt;/bibtex:cite&gt;.
+        This rule covers amino groups, chloro, bromo and iodo atoms &lt;bibtex:cite ref=&quot;PL96&quot;&gt;&lt;/bibtex:cite&gt;.</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondDonorsDaylight -->
+    <!-- Hydrogen Bond Donors (Daylight) -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;hBondDonorsDaylight">
-        <rdfs:label
-            >Hydrogen Bond Donors (Daylight)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondDonorsDaylight">
+        <rdfs:label>Hydrogen Bond Donors (Daylight)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
-        <chemoinformatics-algorithms:description
-            >As defined by Daylight website, &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;DAY01&quot;&gt;&lt;/bibtex:cite&gt;, a H-bond acceptor
+        <chemoinformatics-algorithms:definition>the number of hydrogen bond donors.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>As defined by Daylight website, &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;DAY01&quot;&gt;&lt;/bibtex:cite&gt;, a H-bond acceptor
 	must have an N-H bond, an O-H bond, or a F-H bond</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >the number of hydrogen bond donors.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondacceptors -->
+    <!-- Hydrogen Bond Acceptors -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;hBondacceptors">
-        <rdfs:label
-            >Hydrogen Bond Acceptors</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The number of hydrogen bond acceptors.</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondacceptors">
+        <rdfs:label>Hydrogen Bond Acceptors</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:definition>The number of hydrogen bond acceptors.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondacceptorsDaylight -->
+    <!-- Hydrogen Bond Acceptors (Daylight) -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;hBondacceptorsDaylight">
-        <rdfs:label
-            >Hydrogen Bond Acceptors (Daylight)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:description
-            >As defined by Daylight website, &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;DAY01&quot;&gt;&lt;/bibtex:cite&gt;, a H-bond acceptor is a heteroatom with no positive charge, note that negatively 
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hBondacceptorsDaylight">
+        <rdfs:label>Hydrogen Bond Acceptors (Daylight)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:definition>the number of hydrogen bond acceptors.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>As defined by Daylight website, &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;DAY01&quot;&gt;&lt;/bibtex:cite&gt;, a H-bond acceptor is a heteroatom with no positive charge, note that negatively 
         charged oxygen or sulphur are included. Excluded are halogens, including F, 
         heteroaromatic oxygen, sulphur and pyrrole N. Higher oxidation levels of N,P,S are excluded.
-        Note P(III) is currently included. Zeneca&#39;s work would imply that (O=S=O) shoud also be excluded.</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >the number of hydrogen bond acceptors.</chemoinformatics-algorithms:definition>
-        <dc:date>2004-11-26</dc:date>
+        Note P(III) is currently included. Zeneca&apos;s work would imply that (O=S=O) shoud also be excluded.</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hybridDescriptor -->
+    <!-- hybridDescriptor -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;hybridDescriptor">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Descriptor"/>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#hybridDescriptor">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Descriptor"/>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#ip -->
+    <!-- Ionization Potential -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;ip">
-        <rdfs:label
-            >Ionization Potential</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mr</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The ionization potential.</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >It should be noted that the descriptor values are obtained using a predictive model
-            and are not calculated directly from the structure</chemoinformatics-algorithms:description>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#ip">
+        <rdfs:label>Ionization Potential</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mr</dc:contributor>
         <dc:date>2006-01-15</dc:date>
+        <chemoinformatics-algorithms:definition>The ionization potential.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>It should be noted that the descriptor values are obtained using a predictive model
+            and are not calculated directly from the structure</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#isProtonInAromaticSystem -->
+    <!-- Proton belonging to an aromatic system -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;isProtonInAromaticSystem">
-        <rdfs:label
-            >Proton belonging to an aromatic system</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#isProtonInAromaticSystem">
+        <rdfs:label>Proton belonging to an aromatic system</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-01-27</dc:date>
-        <chemoinformatics-algorithms:definition
-            >1 if the protons is directly bonded to an aromatic system, 2 if the distance between aromatic system and proton is 2 bonds, and 0 for other positions.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>1 if the protons is directly bonded to an aromatic system, 2 if the distance between aromatic system and proton is 2 bonds, and 0 for other positions.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#isProtonInConjugatedPiSystem -->
+    <!-- Proton belonging to a pi-system -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;isProtonInConjugatedPiSystem">
-        <rdfs:label
-            >Proton belonging to a pi-system</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >true if the protons is directly bonded to a pi system.</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#isProtonInConjugatedPiSystem">
+        <rdfs:label>Proton belonging to a pi-system</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-01-27</dc:date>
+        <chemoinformatics-algorithms:definition>true if the protons is directly bonded to a pi system.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#kierHallSmarts -->
+    <!-- Kier &amp; Hall SMARTS -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;kierHallSmarts">
-        <rdfs:label
-            >Kier &amp; Hall SMARTS</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#kierHallSmarts">
+        <rdfs:label>Kier &amp; Hall SMARTS</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2006-09-26</dc:date>
-        <chemoinformatics-algorithms:definition
-            >Counts the number of occurrences of the E-state fragments</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >Traditionally, the E-state indices are obtained by identifying a set of
+        <chemoinformatics-algorithms:definition>Counts the number of occurrences of the E-state fragments</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Traditionally, the E-state indices are obtained by identifying a set of
             fragments and then evaluating the E-state index from them. However it has
             been shown by Butina (Molecules, 2004, 9, 1004-1009) that the frequency
             of occurrence of the fragments can lead to QSAR models that perform as well
@@ -1996,19 +1798,16 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#kierValues -->
+    <!-- Kier and Hall kappa molecular shape indices -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;kierValues">
-        <rdfs:label
-            >Kier and Hall kappa molecular shape indices</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >Kier and Hall kappa molecular shape indices.</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >Kier and Hall kappa molecular shape indices compare the molecular graph with minimal and maximal molecular
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#kierValues">
+        <rdfs:label>Kier and Hall kappa molecular shape indices</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:definition>Kier and Hall kappa molecular shape indices.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Kier and Hall kappa molecular shape indices compare the molecular graph with minimal and maximal molecular
             graphs.
             First kappa shape index is given by
             &lt;mrow xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;
@@ -2145,232 +1944,189 @@
             hydrogen
             suppressed graph. Also, let p2 denote the number of paths of length 2 and let p3 denote the number of paths
             of length 3</chemoinformatics-algorithms:description>
-        <dc:date>2004-11-26</dc:date>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#largestChain -->
+    <!-- Largest Chain -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;largestChain">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#largestChain">
         <rdfs:label>Largest Chain</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chhoppe</dc:contributor>
-        <chemoinformatics-algorithms:description></chemoinformatics-algorithms:description>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chhoppe</dc:contributor>
         <dc:date>2005-02-07</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The number of atoms in the largest chain</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The number of atoms in the largest chain</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description></chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#largestPiSystem -->
+    <!-- Largest Pi Chain -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;largestPiSystem">
-        <rdfs:label
-            >Largest Pi Chain</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chhoppe</dc:contributor>
-        <chemoinformatics-algorithms:description></chemoinformatics-algorithms:description>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#largestPiSystem">
+        <rdfs:label>Largest Pi Chain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chhoppe</dc:contributor>
         <dc:date>2005-02-07</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The number of atoms in the largest pi chain</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The number of atoms in the largest pi chain</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description></chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#lengthOverBreadth -->
+    <!-- Length Over Breadth -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;lengthOverBreadth">
-        <rdfs:label
-            >Length Over Breadth</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;geometricalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
-        <chemoinformatics-algorithms:description
-            >The descriptor has two values
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#lengthOverBreadth">
+        <rdfs:label>Length Over Breadth</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#geometricalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+        <dc:date>2006-09-26</dc:date>
+        <chemoinformatics-algorithms:definition>Calculates the ratio of length to breadth.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>The descriptor has two values
             indicating the maximum and minimumn value of LoB. Note that this method does not
             perform any orientation.</chemoinformatics-algorithms:description>
-        <dc:date>2006-09-26</dc:date>
-        <chemoinformatics-algorithms:definition
-            >Calculates the ratio of length to breadth.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#lipinskifailures -->
+    <!-- Lipinski&apos;s Rule of Five -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;lipinskifailures">
-        <rdfs:label
-            >Lipinski&#39;s Rule of Five</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#lipinskifailures">
+        <rdfs:label>Lipinski&apos;s Rule of Five</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-01-27</dc:date>
-        <chemoinformatics-algorithms:description
-            >The Rule of 5 got its name from the cutoff values for each of the four parameters that define the potential of a drug candidate for good absorption: all of these values are close to five or a multiple of five.
+        <chemoinformatics-algorithms:definition>The number failures of the Lipinski&apos;s Rule Of Five.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>The Rule of 5 got its name from the cutoff values for each of the four parameters that define the potential of a drug candidate for good absorption: all of these values are close to five or a multiple of five.
             The original definition, given by Christopher A. Lipinski, says that poor absorption (or permeation) is more likely when the molecule has:
 * more than 5 H-bond donors 
 * more than 10 H-bond acceptors
 * molecular weight over 500 Dalton
 * LogP is over 5</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >The number failures of the Lipinski&#39;s Rule Of Five.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#longestAliphaticChain -->
+    <!-- Longest Aliphatic Chain -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;longestAliphaticChain">
-        <rdfs:label
-            >Longest Aliphatic Chain</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chhoppe</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The number of atoms in the longest aliphatic chain</chemoinformatics-algorithms:definition>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#longestAliphaticChain">
+        <rdfs:label>Longest Aliphatic Chain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#chhoppe</dc:contributor>
         <dc:date>2005-02-07</dc:date>
+        <chemoinformatics-algorithms:definition>The number of atoms in the longest aliphatic chain</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mde -->
+    <!-- Molecular Distance Edge -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;mde">
-        <rdfs:label
-            >Molecular Distance Edge</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mde">
+        <rdfs:label>Molecular Distance Edge</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2006-09-18</dc:date>
-        <chemoinformatics-algorithms:description
-            >For a description of the methodology see
+        <chemoinformatics-algorithms:definition>Evaluate molecular distance edge descriptors for C, N and O</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>For a description of the methodology see
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;LIU98&quot;&gt;&lt;/bibtex:cite&gt;
             .</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >Evaluate molecular distance edge descriptors for C, N and O</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#momentOfInertia -->
+    <!-- Moments of Inertia -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;momentOfInertia">
-        <rdfs:label
-            >Moments of Inertia</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;geometricalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#momentOfInertia">
+        <rdfs:label>Moments of Inertia</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#geometricalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2005-02-07</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The principal moments of inertia and ratios
+        <chemoinformatics-algorithms:definition>The principal moments of inertia and ratios
             of the principal moments. Als calculates the radius of gyration.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#partialPiCharge -->
+    <!-- Partial Pi Charge -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;partialPiCharge">
-        <rdfs:label
-            >Partial Pi Charge</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
-        <chemoinformatics-algorithms:description
-            >Calculation is based on Gasteiger H.Saller (PEPE)
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#partialPiCharge">
+        <rdfs:label>Partial Pi Charge</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
+        <dc:date>2006-05-08</dc:date>
+        <chemoinformatics-algorithms:definition>pi partial charges in pi-bonded systems of an heavy atom.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Calculation is based on Gasteiger H.Saller (PEPE)
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;SALLER&quot;&gt;&lt;/bibtex:cite&gt;
             .</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >pi partial charges in pi-bonded systems of an heavy atom.</chemoinformatics-algorithms:definition>
-        <dc:date>2006-05-08</dc:date>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#partialSigmaCharge -->
+    <!-- Partial Pi Charge -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;partialSigmaCharge">
-        <rdfs:label
-            >Partial Pi Charge</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#partialSigmaCharge">
+        <rdfs:label>Partial Pi Charge</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
         <dc:date>2006-05-08</dc:date>
-        <chemoinformatics-algorithms:description
-            >Calculation is based on Gasteiger Marsili (PEOE)
+        <chemoinformatics-algorithms:definition>sigma partial charges in
+            sigma-bonded systems (PEOE) of an heavy atom.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Calculation is based on Gasteiger Marsili (PEOE)
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;MARSILI&quot;&gt;&lt;/bibtex:cite&gt;
             .</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >sigma partial charges in
-            sigma-bonded systems (PEOE) of an heavy atom.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#partialTChargeMMFF94 -->
+    <!-- Partial Total Charge (MMFF94) -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;partialTChargeMMFF94">
-        <rdfs:label
-            >Partial Total Charge (MMFF94)</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
-        <chemoinformatics-algorithms:description
-            >Calculation is based on MMFF94.</chemoinformatics-algorithms:description>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#partialTChargeMMFF94">
+        <rdfs:label>Partial Total Charge (MMFF94)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
         <dc:date>2006-05-08</dc:date>
-        <chemoinformatics-algorithms:definition
-            >total partial charges of an heavy
+        <chemoinformatics-algorithms:definition>total partial charges of an heavy
             atom.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Calculation is based on MMFF94.</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#period -->
+    <!-- Period of an atom -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;period">
-        <rdfs:label
-            >Period of an atom</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#period">
+        <rdfs:label>Period of an atom</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-02-07</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The period in the periodic table of an atom belonging to an atom container</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The period in the periodic table of an atom belonging to an atom container</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#petitjeanNumber -->
+    <!-- Petitjean Number -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;petitjeanNumber">
-        <rdfs:label
-            >Petitjean Number</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#petitjeanNumber">
+        <rdfs:label>Petitjean Number</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-02-07</dc:date>
-        <chemoinformatics-algorithms:description
-            >According to the Petitjean definition, the eccentricity of a vertex corresponds to the
+        <chemoinformatics-algorithms:definition>The Petitjean Number of a molecule.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>According to the Petitjean definition, the eccentricity of a vertex corresponds to the
             distance from that vertex to the most remote vertex in the graph. The distance
             is obtained from the distance matrix as the count of edges between the two vertices.
             If
@@ -2404,59 +2160,48 @@
                 &lt;/mfrac&gt;
             &lt;/mrow&gt;
             .</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >The Petitjean Number of a molecule.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#petitjeanShapeIndex -->
+    <!-- Petitjean Shape Indices -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;petitjeanShapeIndex">
-        <rdfs:label
-            >Petitjean Shape Indices</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;geometricalDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#petitjeanShapeIndex">
+        <rdfs:label>Petitjean Shape Indices</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#geometricalDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2006-01-15</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The topological and geometric shape indices described Petitjean and Bath et al.
+        <chemoinformatics-algorithms:definition>The topological and geometric shape indices described Petitjean and Bath et al.
             respectively. Both measure the anisotropy in a molecule.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#piContact -->
+    <!-- Pi-contact of two atoms -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;piContact">
-        <rdfs:label
-            >Pi-contact of two atoms</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#piContact">
+        <rdfs:label>Pi-contact of two atoms</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-02-07</dc:date>
-        <chemoinformatics-algorithms:definition
-            >check if two atoms have pi-contact (this is true when there is one and
+        <chemoinformatics-algorithms:definition>check if two atoms have pi-contact (this is true when there is one and
             the same conjugated pi-system which contains both atoms, or directly linked neighboors of the atoms).</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#piElectronegativity -->
+    <!-- Pi Electronegativity -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;piElectronegativity">
-        <rdfs:label
-            >Pi Electronegativity</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The pi electronegativity for a given atom.</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >Pi electronegativity is given by
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#piElectronegativity">
+        <rdfs:label>Pi Electronegativity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mrc</dc:contributor>
+        <dc:date>2006-05-08</dc:date>
+        <chemoinformatics-algorithms:definition>The pi electronegativity for a given atom.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Pi electronegativity is given by
             &lt;mrow xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;
                 &lt;mi&gt;X&lt;/mi&gt;
                 &lt;mo&gt;=&lt;/mo&gt;
@@ -2479,49 +2224,39 @@
             &lt;/mrow&gt;
             , where a, b and c are Gasteiger Marsili parameters, and q
             is the sigma charge.</chemoinformatics-algorithms:description>
-        <dc:date>2006-05-08</dc:date>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#protonPartialCharge -->
+    <!-- Proton Total Partial Charge -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;protonPartialCharge">
-        <rdfs:label
-            >Proton Total Partial Charge</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#protonPartialCharge">
+        <rdfs:label>Proton Total Partial Charge</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-02-07</dc:date>
-        <chemoinformatics-algorithms:description
-            >Calculation is based on Gasteiger Marsili (PEOE)</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >partial charges of an heavy atom and its protons.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>partial charges of an heavy atom and its protons.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Calculation is based on Gasteiger Marsili (PEOE)</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rdfProtonCalculatedValues -->
+    <!-- RDF Proton Descriptor -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;rdfProtonCalculatedValues">
-        <rdfs:label
-            >RDF Proton Descriptor</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;geometricalDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rdfProtonCalculatedValues">
+        <rdfs:label>RDF Proton Descriptor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#geometricalDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-01-27</dc:date>
-        <chemoinformatics-algorithms:definition
-            >Calculation of RDF proton descriptor based on
+        <chemoinformatics-algorithms:definition>Calculation of RDF proton descriptor based on
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;GAST2002&quot;&gt;&lt;/bibtex:cite&gt;
             .</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >A given proton is represented by 5 different descriptors.
+        <chemoinformatics-algorithms:description>A given proton is represented by 5 different descriptors.
             The first one has the form
             &lt;mrow xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;
                 &lt;apply&gt;
@@ -2777,55 +2512,45 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#ringCount -->
+    <!-- Ring Count -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;ringCount">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#ringCount">
         <rdfs:label>Ring Count</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
         <dc:date>2009-07-23</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The number of rings in the molecules.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The number of rings in the molecules.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rotatableBondsCount -->
+    <!-- Rotatable Bonds Count -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;rotatableBondsCount">
-        <rdfs:label
-            >Rotatable Bonds Count</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:description
-            >The number of rotatable bonds is given by the SMARTS specified by Daylight on
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rotatableBondsCount">
+        <rdfs:label>Rotatable Bonds Count</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <dc:date>2005-02-07</dc:date>
+        <chemoinformatics-algorithms:definition>The number of rotatable bonds on a molecule.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>The number of rotatable bonds is given by the SMARTS specified by Daylight on
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;DAY01&quot;&gt;&lt;/bibtex:cite&gt;
             .</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >The number of rotatable bonds on a molecule.</chemoinformatics-algorithms:definition>
-        <dc:date>2005-02-07</dc:date>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#sigmaElectronegativity -->
+    <!-- Sigma Electronegativity -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;sigmaElectronegativity">
-        <rdfs:label
-            >Sigma Electronegativity</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#sigmaElectronegativity">
+        <rdfs:label>Sigma Electronegativity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-02-07</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The sigma electronegativity for a given atom.</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >Sigma electronegativity is given by
+        <chemoinformatics-algorithms:definition>The sigma electronegativity for a given atom.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Sigma electronegativity is given by
             &lt;mrow xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;
                 &lt;mi&gt;X&lt;/mi&gt;
                 &lt;mo&gt;=&lt;/mo&gt;
@@ -2852,68 +2577,57 @@
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#taeAminoAcid -->
+    <!-- TAE RECON descriptors for amino acid sequences -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;taeAminoAcid">
-        <rdfs:label
-            >TAE RECON descriptors for amino acid sequences</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;ProteinDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#taeAminoAcid">
+        <rdfs:label>TAE RECON descriptors for amino acid sequences</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#ProteinDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2006-08-23</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The TAE RECON descriptors for amino acid sequences. Uses precalculated quantum mechanical
+        <chemoinformatics-algorithms:definition>The TAE RECON descriptors for amino acid sequences. Uses precalculated quantum mechanical
             parameters to generate a set of 147 descriptors for a given sequence</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor -->
+    <!-- topologicalDescriptor -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;topologicalDescriptor">
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;Descriptor"/>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor">
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#Descriptor"/>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#tpsa -->
+    <!-- Topological Polar Surface Area -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;tpsa">
-        <rdfs:label
-            >Topological Polar Surface Area</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;electronicDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >Calculation of topological polar surface area based on fragment
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#tpsa">
+        <rdfs:label>Topological Polar Surface Area</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#electronicDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <dc:date>2005-01-27</dc:date>
+        <chemoinformatics-algorithms:definition>Calculation of topological polar surface area based on fragment
             contributions
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;ERTL2000&quot;&gt;&lt;/bibtex:cite&gt;
             .</chemoinformatics-algorithms:definition>
-        <dc:date>2005-01-27</dc:date>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#vAdjMa -->
+    <!-- Vertex adjacency information magnitude -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;vAdjMa">
-        <rdfs:label
-            >Vertex adjacency information magnitude</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The vertex adjacency information of a molecule.</chemoinformatics-algorithms:definition>
-        <chemoinformatics-algorithms:description
-            >The values is given by
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#vAdjMa">
+        <rdfs:label>Vertex adjacency information magnitude</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:definition>The vertex adjacency information of a molecule.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>The values is given by
             &lt;mrow xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;
                 &lt;mn&gt;1&lt;/mn&gt;
                 &lt;mo&gt;+&lt;/mo&gt;
@@ -2925,117 +2639,96 @@
             ,
             where m is the number of heavy-heavy bonds.
             If m is zero, then zero is returned.</chemoinformatics-algorithms:description>
-        <dc:date>2004-11-26</dc:date>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#vdwradius -->
+    <!-- Van der Waals radius -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;vdwradius">
-        <rdfs:label
-            >Van der Waals radius</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;AtomicDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#vdwradius">
+        <rdfs:label>Van der Waals radius</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-01-27</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The VdW radius of a given atom.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The VdW radius of a given atom.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#weight -->
+    <!-- Molecular Weight -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;weight">
-        <rdfs:label
-            >Molecular Weight</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The weight of atoms of a certain element type.
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#weight">
+        <rdfs:label>Molecular Weight</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <dc:date>2005-01-27</dc:date>
+        <chemoinformatics-algorithms:definition>The weight of atoms of a certain element type.
             If no element is specified, the returned value is the Molecular Weight</chemoinformatics-algorithms:definition>
-        <dc:date>2005-01-27</dc:date>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#weightedPath -->
+    <!-- Weighted path descriptors -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;weightedPath">
-        <rdfs:label
-            >Weighted path descriptors</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#weightedPath">
+        <rdfs:label>Weighted path descriptors</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#rguha</dc:contributor>
         <dc:date>2006-01-15</dc:date>
-        <chemoinformatics-algorithms:definition
-            >The weighted path (molecular ID) descriptors described by Randic. They characterize molecular branching.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:definition>The weighted path (molecular ID) descriptors described by Randic. They characterize molecular branching.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#wienerNumbers -->
+    <!-- Wiener Numbers -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;wienerNumbers">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#wienerNumbers">
         <rdfs:label>Wiener Numbers</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >Wiener path number and Wiener polarity number.</chemoinformatics-algorithms:definition>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-01-27</dc:date>
-        <chemoinformatics-algorithms:description
-            >Wiener path number: half the sum of all the distance matrix entries.
+        <chemoinformatics-algorithms:definition>Wiener path number and Wiener polarity number.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>Wiener path number: half the sum of all the distance matrix entries.
             Wiener polarity number: half the sum of all the distance matrix entries with a value of 3.</chemoinformatics-algorithms:description>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#xlogP -->
+    <!-- XLogP -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;xlogP">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#xlogP">
         <rdfs:label>XLogP</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;constitutionalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#constitutionalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2005-01-27</dc:date>
-        <chemoinformatics-algorithms:description
-            >For a description of the methodology see
+        <chemoinformatics-algorithms:definition>Prediction of logP based on the atom-type method called XLogP.</chemoinformatics-algorithms:definition>
+        <chemoinformatics-algorithms:description>For a description of the methodology see
             &lt;bibtex:cite xmlns:bibtex=&quot;http://bibtexml.sf.net/&quot; ref=&quot;WANG97&quot;&gt;&lt;/bibtex:cite&gt;
             .</chemoinformatics-algorithms:description>
-        <chemoinformatics-algorithms:definition
-            >Prediction of logP based on the atom-type method called XLogP.</chemoinformatics-algorithms:definition>
     </owl:Class>
     
 
 
-    <!-- http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#zagrebIndex -->
+    <!-- Zagreb Index -->
 
-    <owl:Class rdf:about="&chemoinformatics-algorithms;zagrebIndex">
+    <owl:Class rdf:about="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#zagrebIndex">
         <rdfs:label>Zagreb Index</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;MolecularDescriptor"/>
-        <rdfs:subClassOf rdf:resource="&chemoinformatics-algorithms;topologicalDescriptor"/>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
-        <dc:contributor rdf:datatype="&xsd;anyURI"
-            >http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
-        <chemoinformatics-algorithms:definition
-            >The sum of the squared atom degrees of all heavy atoms.</chemoinformatics-algorithms:definition>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#MolecularDescriptor"/>
+        <rdfs:subClassOf rdf:resource="http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#topologicalDescriptor"/>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#elw</dc:contributor>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#mf</dc:contributor>
         <dc:date>2004-11-26</dc:date>
+        <chemoinformatics-algorithms:definition>The sum of the squared atom degrees of all heavy atoms.</chemoinformatics-algorithms:definition>
     </owl:Class>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 4.1.0) http://owlapi.sourceforge.net -->
 
